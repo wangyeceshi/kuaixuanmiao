@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>快宣喵</title>
+
+</head>
+<body>
+    <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.19/libs/cn/index.js"></script>
+    <script>
+    new CozeWebSDK.WebChatClient({
+        config: {
+            bot_id: '7608177256699183119',
+            type: 'bot'
+        },
+        // 用户信息配置 - 用于会话隔离和显示用户信息
+        userInfo: {
+            id: 'user_' + Date.now(), // 用户唯一ID，这里用时间戳生成，实际应用中应使用真实用户ID
+            nickname: '访客', // 用户昵称
+            url: '' // 用户头像URL（可选）
+        },
+        componentProps: {
+            title: '快宣喵',
+        },
+        auth: {
+            type: 'token',
+            token: 'pat_XMZ8HJW8humbuYOzVaUZSV3zgrmbu9napZHJYAU23FvVZsUoMJBU5bvHmaKjNmQ9',
+            onRefreshToken: function () {
+                return 'pat_XMZ8HJW8humbuYOzVaUZSV3zgrmbu9napZHJYAU23FvVZsUoMJBU5bvHmaKjNmQ9'
+            }
+        }
+    });
+    </script>
+</body>
+</html>
