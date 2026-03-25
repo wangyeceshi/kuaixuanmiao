@@ -1,130 +1,159 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
-    <title>快宣喵</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-
-        .user-config {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 10000;
-        }
-
-        .user-config label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        .user-config input {
-            width: 200px;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-bottom: 10px;
-        }
-
-        .user-config button {
-            background: #4CAF50;
-            color: white;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .user-config button:hover {
-            background: #45a049;
-        }
-
-        .current-user {
-            margin-top: 10px;
-            padding: 8px;
-            background: #f0f0f0;
-            border-radius: 4px;
-            font-size: 12px;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全民通航 - 标准化无人机服务与低空人才培育平台</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <div class="user-config">
-        <label for="userId">用户 ID：</label>
-        <input type="text" id="userId" placeholder="输入用户 ID">
-        <button onclick="updateUserId()">更新用户 ID</button>
-        <div class="current-user">
-            当前用户 ID: <span id="currentUserId">未设置</span>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">全民通航</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">首页</a></li>
+                <li><a href="courses.html">课程分类</a></li>
+                <li><a href="tutorials.html">教程中心</a></li>
+                <li><a href="rental.html">设备租赁</a></li>
+                <li><a href="training.html">专项实训</a></li>
+                <li><a href="certification.html">辅助考证</a></li>
+                <li><a href="forum.html">交流论坛</a></li>
+            </ul>
         </div>
-    </div>
+    </nav>
 
-    <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.19/libs/cn/index.js"></script>
-    <script>
-        let chatClient = null;
-        let currentUserId = localStorage.getItem('userId') || 'user_' + Date.now();
+    <section class="hero">
+        <div class="hero-content">
+            <h1>让无人机技术走进千家万户</h1>
+            <p>覆盖全年龄段的无人机综合服务平台 | 从兴趣启蒙到职业就业</p>
+            <div class="hero-buttons">
+                <a href="courses.html" class="btn btn-primary">开始学习</a>
+                <a href="rental.html" class="btn btn-secondary">设备租赁</a>
+            </div>
+        </div>
+    </section>
 
-        // 显示当前用户 ID
-        document.getElementById('currentUserId').textContent = currentUserId;
-        document.getElementById('userId').value = currentUserId;
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">核心服务</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>分龄化课程</h3>
+                    <p>覆盖6-70岁全人群，从基础认知到职业应用的完整课程体系</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚁</div>
+                    <h3>设备租赁</h3>
+                    <p>提供多款适配机型，解决购机成本高、维护难的痛点</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3>模拟训练</h3>
+                    <p>凤凰模拟器全流程训练，零风险环境培养飞行手感</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>竞赛服务</h3>
+                    <p>多主题赛事活动，从趣味飞行到专业竞技全覆盖</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📜</div>
+                    <h3>职业认证</h3>
+                    <p>联合民航局、AOPA提供权威认证，对接就业渠道</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>售后保障</h3>
+                    <p>详细维修手册，配套专业技术支持服务</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        function initChat(userId) {
-            // 如果已有实例，先销毁
-            if (chatClient && chatClient.destroy) {
-                chatClient.destroy();
-            }
+    <section class="target-groups">
+        <div class="container">
+            <h2 class="section-title">适合人群</h2>
+            <div class="groups-grid">
+                <div class="group-card">
+                    <h3>少儿群体</h3>
+                    <p>趣味组装、基础飞行、科技启蒙</p>
+                    <ul>
+                        <li>无人机基础知识讲解</li>
+                        <li>模块化组装与调试</li>
+                        <li>安全操作规范培训</li>
+                    </ul>
+                </div>
+                <div class="group-card">
+                    <h3>成人群体</h3>
+                    <p>职业技能、赛事特训、行业应用</p>
+                    <ul>
+                        <li>模拟器进阶教程</li>
+                        <li>专业操作技巧提升</li>
+                        <li>职业认证与就业对接</li>
+                    </ul>
+                </div>
+                <div class="group-card">
+                    <h3>中老年群体</h3>
+                    <p>简易航拍、休闲娱乐、丰富生活</p>
+                    <ul>
+                        <li>简易航拍技巧</li>
+                        <li>一键操作培训</li>
+                        <li>安全飞行规范</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            chatClient = new CozeWebSDK.WebChatClient({
-                config: {
-                    bot_id: '7608177256699183119',
-                    type: 'bot'
-                },
-                userInfo: {
-                    id: userId,
-                    nickname: '用户_' + userId,
-                    url: ''
-                },
-                componentProps: {
-                    title: '快宣喵'
-                },
-                auth: {
-                    type: 'token',
-                    token: 'pat_XMZ8HJW8humbuYOzVaUZSV3zgrmbu9napZHJYAU23FvVZsUoMJBU5bvHmaKjNmQ9',
-                    onRefreshToken: function () {
-                        return 'pat_XMZ8HJW8humbuYOzVaUZSV3zgrmbu9napZHJYAU23FvVZsUoMJBU5bvHmaKjNmQ9'
-                    }
-                }
-            });
-        }
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">200万+</div>
+                    <div class="stat-label">行业人才缺口</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">45个</div>
+                    <div class="stat-label">城市启动低空经济</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">全年龄</div>
+                    <div class="stat-label">6-70岁全覆盖</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">一站式</div>
+                    <div class="stat-label">学习到就业闭环</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        function updateUserId() {
-            const newUserId = document.getElementById('userId').value.trim();
-            if (!newUserId) {
-                alert('请输入有效的用户 ID');
-                return;
-            }
-
-            currentUserId = newUserId;
-            localStorage.setItem('userId', newUserId);
-            document.getElementById('currentUserId').textContent = newUserId;
-
-            // 重新初始化聊天客户端
-            initChat(currentUserId);
-            alert('用户 ID 已更新为: ' + newUserId);
-        }
-
-        // 初始化聊天
-        initChat(currentUserId);
-    </script>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>关于我们</h4>
+                    <p>全民通航致力于推动无人机技术全民普及，为低空经济产业输送高素质人才。</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="courses.html">课程体系</a></li>
+                        <li><a href="rental.html">设备租赁</a></li>
+                        <li><a href="certification.html">职业认证</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <p>邮箱: contact@qmth.com</p>
+                    <p>电话: 400-XXX-XXXX</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 全民通航. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
-
 </html>
